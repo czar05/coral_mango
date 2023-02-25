@@ -14,6 +14,14 @@ const restaurentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    reviews: [
+      {
+        type: String,
+      },
+    ],
+    noOfReviews: {
+      type: Number,
+    },
   },
   {
     timestamps: true,

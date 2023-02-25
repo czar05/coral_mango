@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);
-mongoose.connect("mongodb://0.0.0.0:27017/coral_db");
+mongoose.connect(process.env.MONGO_URI);
 
 const db = mongoose.connection;
 
