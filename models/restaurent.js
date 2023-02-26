@@ -16,11 +16,13 @@ const restaurentSchema = new mongoose.Schema(
     },
     reviews: [
       {
-        type: String,
+        type: mongoose.Schema.ObjectId,
+        ref: "Review",
       },
     ],
     noOfReviews: {
       type: Number,
+      default: 0,
     },
   },
   {

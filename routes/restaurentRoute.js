@@ -9,9 +9,15 @@ router.post(
   authorizeRoles("admin"),
   restaurentController.create
 );
-router.put(
+router.post(
   "/restaurent/review",
   isAuthenticatedUser,
   restaurentController.createReview
+);
+router.get(
+  "/restaurent/admin",
+  isAuthenticatedUser,
+  authorizeRoles("admin"),
+  restaurentController.getRestaurentReview
 );
 module.exports = router;
