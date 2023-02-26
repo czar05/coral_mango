@@ -53,3 +53,8 @@ return index%2 ===0
 return item\*item;
 })
 console.log(result1);
+
+// how to set up the project
+just clone the project or download zip
+then open the project in vscode and do npm install
+then run npm start
