@@ -3,10 +3,11 @@ const router = express.Router();
 const restaurentController = require("../controllers/restaurentController");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 router.get("/restaurent", restaurentController.getAll);
+router.get("/restaurent/:id", restaurentController.getRestaurent);
 router.post(
   "/restaurent/create",
-  isAuthenticatedUser,
-  authorizeRoles("admin"),
+  // isAuthenticatedUser,
+  // authorizeRoles("admin"),
   restaurentController.create
 );
 router.post(
@@ -20,4 +21,5 @@ router.get(
   authorizeRoles("admin"),
   restaurentController.getRestaurentReview
 );
+
 module.exports = router;

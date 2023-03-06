@@ -12,6 +12,24 @@ module.exports.getAll = async (req, res) => {
     res.status(500).json({ message: Error.message });
   }
 };
+module.exports.getRestaurent = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const restaurent = await Restaurent.find(id);
+    if (!restaurent) {
+      return res.status(400).json({
+        message: "restaurant does not exist",
+      });
+    }
+
+    res.status(200).json({
+      restaurent,
+      message: "restaurent is fetched successfully",
+    });
+  } catch (error) {
+    res.status(500).json({ message: Error.message });
+  }
+};
 
 module.exports.create = async (req, res) => {
   try {
@@ -20,6 +38,8 @@ module.exports.create = async (req, res) => {
       address: req.body.address,
       description: req.body.description,
     });
+    newRestaurent.categories.push(req.body.category);
+    newRestaurent.save();
     res.status(200).json({
       restaurent: newRestaurent,
       message: "restaurent is created successfully",

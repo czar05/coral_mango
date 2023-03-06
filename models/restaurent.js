@@ -24,6 +24,12 @@ const restaurentSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    categories: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: "Category",
+      },
+    ],
   },
   {
     timestamps: true,
